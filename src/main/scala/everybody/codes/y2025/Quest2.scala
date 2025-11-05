@@ -19,13 +19,13 @@ object Quest2:
       .next
       .toString
 
-  def solve2(input: String): Int =
+  def solve2(input: String, by: Int = 10): Int =
     val s"A=[$x,$y]" = input
     val A            = Complex(x.toLong, y.toLong)
 
     (for
-      y <- A.y to A.y + 1000 by 10
-      x <- A.x to A.x + 1000 by 10
+      y <- A.y to A.y + 1000 by by
+      x <- A.x to A.x + 1000 by by
       check = Iterator
         .iterate(Complex(0, 0)) { v =>
           v * v / Complex(100000, 100000) + Complex(x, y)
@@ -35,21 +35,7 @@ object Quest2:
       if check.x.abs < 1000000 && check.y.abs < 1000000
     yield check).size
 
-  def solve3(input: String): Int =
-    val s"A=[$x,$y]" = input
-    val A            = Complex(x.toLong, y.toLong)
-
-    (for
-      y <- A.y to A.y + 1000
-      x <- A.x to A.x + 1000
-      check = Iterator
-        .iterate(Complex(0, 0)) { v =>
-          v * v / Complex(100000, 100000) + Complex(x, y)
-        }
-        .drop(100)
-        .next
-      if check.x.abs < 1000000 && check.y.abs < 1000000
-    yield check).size
+  def solve3(input: String): Int = solve2(input, by = 1)
 
   val input = "A=[160,58]"
 
