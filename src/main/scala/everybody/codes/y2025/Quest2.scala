@@ -12,9 +12,8 @@ object Quest2:
     val A            = Complex(x.toLong, y.toLong)
 
     Iterator
-      .iterate(Complex(0, 0)) { v =>
+      .iterate(Complex(0, 0)): v =>
         v * v / Complex(10, 10) + A
-      }
       .drop(3)
       .next
       .toString

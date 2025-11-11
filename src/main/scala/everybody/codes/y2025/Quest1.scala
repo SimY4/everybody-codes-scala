@@ -2,7 +2,7 @@ package everybody.codes.y2025
 
 object Quest1:
   def solve(input: String): String =
-    val names :: instructions :: Nil = input.linesIterator.filter(_.nonEmpty).map(_.split(",")).toList
+    val names :: instructions :: Nil = input.split(System.lineSeparator() * 2).map(_.split(",")).toList
 
     def navigate(pos: Int, ins: String): Int = ins match
       case s"L$n" => 0 max (pos - n.toInt)
@@ -11,7 +11,7 @@ object Quest1:
     names(instructions.foldLeft(0)(navigate))
 
   def solve2(input: String): String =
-    val names :: instructions :: Nil = input.linesIterator.filter(_.nonEmpty).map(_.split(",")).toList
+    val names :: instructions :: Nil = input.split(System.lineSeparator() * 2).map(_.split(",")).toList
 
     def navigate(pos: Int, ins: String): Int = ins match
       case s"L$n" => (names.length + pos - n.toInt) % names.length
@@ -20,13 +20,13 @@ object Quest1:
     names(instructions.foldLeft(0)(navigate))
 
   def solve3(input: String): String =
-    val names :: instructions :: Nil = input.linesIterator.filter(_.nonEmpty).map(_.split(",")).toList
+    val names :: instructions :: Nil = input.split(System.lineSeparator() * 2).map(_.split(",")).toList
 
     def navigate(pos: Int, ins: String): Int = ins match
       case s"L$n" => (names.length + pos - n.toInt) % names.length
       case s"R$n" => (pos + n.toInt)                % names.length
 
-    instructions.foreach { ins =>
+    instructions.foreach: ins =>
       val swapPos = ins match
         case s"L$n" => (names.length * 10 - n.toInt) % names.length
         case s"R$n" => n.toInt                       % names.length
@@ -34,7 +34,6 @@ object Quest1:
       val name = names(0)
       names(0) = names(swapPos)
       names(swapPos) = name
-    }
 
     names(0)
 

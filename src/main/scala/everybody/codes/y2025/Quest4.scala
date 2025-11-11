@@ -16,16 +16,16 @@ object Quest4:
       .toLong
 
   def solve3(input: String): Long =
-    val cogs = input.linesIterator.map {
-      case s"$f|$s" => f.toInt   -> s.toInt
-      case cog      => cog.toInt -> cog.toInt
-    }.toVector
+    val cogs = input.linesIterator
+      .map:
+        case s"$f|$s" => f.toInt   -> s.toInt
+        case cog      => cog.toInt -> cog.toInt
+      .toVector
 
     (cogs
       .zip(cogs.tail)
-      .map { case ((_, s), (f, _)) =>
-        BigDecimal(s.toDouble / f)
-      }
+      .map:
+        case ((_, s), (f, _)) => BigDecimal(s.toDouble / f)
       .product * 100).setScale(0, RoundingMode.FLOOR).toLong
 
   val input = """1000
