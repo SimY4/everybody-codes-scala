@@ -1,7 +1,5 @@
 package everybody.codes.y2025
 
-import scala.annotation.tailrec
-
 object Quest7:
   def solve(input: String): Option[String] =
     val names :: rules :: Nil = input.split(System.lineSeparator() * 2).toList
