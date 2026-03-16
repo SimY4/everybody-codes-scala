@@ -4,6 +4,7 @@ final case class Timed[R](result: R, time: Long):
   override def toString: String = s"$result, time: ${time / 1000000}ms"
 
 @main def run(): Unit =
+  y2024.run()
   y2025.run()
 
 def timed[R](block: => R): Timed[R] =
