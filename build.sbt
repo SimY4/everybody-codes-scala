@@ -2,7 +2,7 @@ import sbtwelcome.*
 
 ThisBuild / organization := "com.github.simy4"
 ThisBuild / version      := "0.1.0"
-ThisBuild / scalaVersion := "3.8.2"
+ThisBuild / scalaVersion := "3.8.3"
 Global / cancelable      := true
 
 lazy val root = project
@@ -11,11 +11,11 @@ lazy val root = project
     name := "everybody-codes",
     libraryDependencies ++= Seq(
       "org.scala-lang.modules" %% "scala-parallel-collections" % "1.2.0",
-      "org.scalameta"          %% "munit"                      % "1.2.4" % Test
+      "org.scalameta"          %% "munit"                      % "1.3.0" % Test
     ),
     scalacOptions ++= Seq(
       "-release",
-      "21",
+      "25",
       "-encoding",
       "UTF-8",
       "-explain",
