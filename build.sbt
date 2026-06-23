@@ -1,8 +1,8 @@
 import sbtwelcome.*
 
-ThisBuild / organization := "com.github.simy4"
-ThisBuild / version      := "0.1.0"
-ThisBuild / scalaVersion := "3.8.4"
+organization := "com.github.simy4"
+version      := "0.1.0"
+scalaVersion := "3.8.4"
 Global / cancelable      := true
 
 lazy val root = project
